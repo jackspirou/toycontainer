@@ -16,8 +16,10 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
      sudo apt-get update
      sudo apt-get install -y whois git htop golang-go
-     sudo useradd -m -p `mkpasswd password_here` -s /bin/bash user_here
-     sudo usermod -a -G sudo user_here
+     sudo useradd -m -p `mkpasswd password_here` -s /bin/bash rooty
+     sudo usermod -a -G sudo rooty
+     sudo mkdir /home/rootfs
+     sudo tar -xf /home/ubuntu/toycontainer/rootfs.tar.xz -C /home/rootfs
   SHELL
 
 end
