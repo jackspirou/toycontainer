@@ -21,7 +21,7 @@ func main() {
 }
 
 func run() {
-	cmd := exec.Command("/proc/self/exe", append([]string{"child"}, os.Args[2]...)...)
+	cmd := exec.Command("/proc/self/exe", append([]string{"child"}, os.Args[2:]...)...)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
